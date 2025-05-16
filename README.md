@@ -165,4 +165,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
+I recommend you to read the original article, I am just a poor imitation.
+
+[alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms](https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/)
+
 AlphaEvolve is inspired by works at the intersection of LLMs and evolutionary computation, including research on automated programming, genetic programming, and LLM-guided search. 

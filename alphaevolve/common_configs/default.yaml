@@ -1,0 +1,69 @@
+# Default configuration for AlphaEvolve
+# This file provides a template with common settings
+
+# Directory containing problem definition files: src/, evaluate.py, etc.
+problem_dir: "./problems/example"
+
+# Controller settings
+controller:
+  max_iterations: 100
+  budget:
+    llm_calls: 1000
+    runtime_minutes: 120
+  target_score:
+    accuracy: 0.95
+    performance: 0.85
+    overall: 0.9
+
+# Program database settings
+program_database:
+  # Database type: "file" (default) or "postgresql"
+  db_type: "file"
+  population_size: 50
+  archive_mode: "pareto"  # Options: "pareto", "best", "diverse"
+  metrics: ["accuracy", "performance", "overall"]
+  
+  # PostgreSQL database configuration (only used if db_type is "postgresql")
+  postgresql:
+    host: "localhost"
+    port: 5432
+    dbname: "alphaevolve"
+    user: "postgres"
+    password: "password"
+  
+  # Connection pool settings (only for PostgreSQL)
+  min_pool_size: 1
+  max_pool_size: 10
+
+# LLM settings
+llm:
+  model: "lm_studio/llama-3-8b-instruct"  # Default for local LM Studio
+  # For OpenAI models:
+  # model: "gpt-3.5-turbo"
+  # api_key: "your-api-key"
+  # api_base: "https://api.openai.com/v1"
+  
+  temperature: 0.7
+  max_tokens: 1024
+  timeout: 60
+  retry_attempts: 3
+  retry_delay: 5
+  fallback_models: []
+
+# Prompt settings
+prompt:
+  default_template: "default"
+  max_context_length: 8000
+  evolve_templates: false  # Whether to use meta-prompter to evolve templates
+  
+  # Meta-prompter settings (only used if evolve_templates is true)
+  meta_prompter:
+    max_prompts_per_round: 2
+    min_programs_required: 5
+
+# Evaluation settings
+evaluation:
+  max_workers: 4
+  timeout: 60
+  use_subprocess: true
+  cascade_thresholds: null  # Example: {"test1": 0.7, "test2": 0.8} 

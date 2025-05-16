@@ -43,7 +43,7 @@ AlphaEvolve consists of several core components:
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/alphaevolve.git
+git clone https://github.com/win10ogod/alpha-evolve.git
 cd alphaevolve
 pip install -e .
 ```
